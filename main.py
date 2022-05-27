@@ -1,4 +1,5 @@
 import csv
+import unittest
 from unittest import TestCase
 
 class MenadzerPolaczen:
@@ -10,9 +11,9 @@ class MenadzerPolaczen:
         calls_dict_sum=dict()
         with open(self.filename,'r') as fin:
             reader=csv.reader(fin,delimiter=',')
-            header=next(header)
+            header=next(reader)
 
-            for row in header:
+            for row in reader:
                 from_subsr=int(row[0])
                 if from_subsr not in calls_dict_sum:
                     calls_dict_sum[from_subsr]=0
